@@ -12,7 +12,7 @@ class Question(models.Model):
         verbose_name_plural='Preguntas'
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='questions',on_delete=models.CASCADE)
     choice_text = models.CharField("Texto",max_length=200)
     votes = models.IntegerField("Votos",default=0)
 

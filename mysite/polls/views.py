@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from .models import Choice, Question
-from .serializers import ChoiceModelSerializer, QuestionModelSerializer
+from .serializers import ChoiceModelSerializer, QuestionChoiceSerializer, QuestionModelSerializer
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset=Question.objects.all()
@@ -10,6 +10,11 @@ class QuestionViewSet(viewsets.ModelViewSet):
 class ChoiceViewSet(viewsets.ModelViewSet):
     queryset=Choice.objects.all()
     serializer_class=ChoiceModelSerializer
+    permission_classes=[]
+
+class QuestionChoicesViewSet(viewsets.ModelViewSet):
+    queryset=Question.objects.all()
+    serializer_class=QuestionChoiceSerializer
     permission_classes=[]
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the polls index.")
